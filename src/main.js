@@ -6,23 +6,34 @@ import "./registerServiceWorker";
 import Vuetify from "vuetify";
 import "vuetify/dist/vuetify.min.css";
 import Toasted from "toastedjs";
-import "../node_modules/toastedjs/dist/toasted.min.css";
+import "toastedjs/src/sass/toast.scss";
+import "material-design-icons-iconfont/dist/material-design-icons.css";
 
-Vue.use(Vuetify);
+Vue.use(Vuetify, {
+  iconfont: "mdi" // 'md' || 'mdi' || 'fa' || 'fa4'
+});
 
 Vue.config.productionTip = false;
 
 let toasted = new Toasted({
   position: "bottom-left",
-  theme: "alive"
-});
-
-toasted.show("New Message", {
-  text: "Dismiss",
-  onClick: (e, toasted) => {
-    toasted.delete();
+  duration: 3000,
+  icon: {
+    name: "mail_outline",
+    color: "white"
   }
 });
+
+toasted
+  .show("New Message", {
+    action: {
+      text: "Save",
+      onClick: (e, toasted) => {
+        toasted.delete();
+      }
+    }
+  })
+  .delete(3000);
 
 new Vue({
   router,
