@@ -7,7 +7,7 @@ Vue.use(Vuex);
 
 let debug = process.env.NODE_ENV !== "production";
 
-export const stores = new Vuex.Store({
+export default new Vuex.Store({
   modules: {
     Notifications
   },

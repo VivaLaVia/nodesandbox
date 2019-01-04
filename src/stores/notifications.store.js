@@ -2,7 +2,13 @@
  * State
  */
 const state = {
-  notifications: []
+  notifications: [
+    {
+      id: 1,
+      title: "Example",
+      content: "This is a test"
+    }
+  ]
 };
 
 /**

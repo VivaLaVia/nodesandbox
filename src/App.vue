@@ -5,6 +5,13 @@
       <router-link to="/about">About</router-link>
     </div>
     <router-view/>
+    <ul>
+      <li v-for="notification in notifications" v-bind:key="notification.id">
+        {{ notification.id }}
+        {{ notification.title }}
+        {{ notification.content }}
+      </li>
+    </ul>
   </div>
 </template>
 
